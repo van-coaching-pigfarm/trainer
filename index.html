@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThS. BS Thú y Lê Hoàng Vân | Chuyên gia Đào tạo Quản Lí, Vận Hành Trang Trại Heo & Khai vấn phát triển con người</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #1e4a6d;
+            --secondary-blue: #2d6a9f;
+            --light-blue: #e8f4fc;
+            --warm-beige: #f5f0e8;
+            --accent-gold: #c9a45c;
+            --text-dark: #2c3e50;
+            --text-light: #5a6c7d;
+        }
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .bg-primary { background-color: var(--primary-blue); }
+        .bg-secondary { background-color: var(--secondary-blue); }
+        .bg-light-blue { background-color: var(--light-blue); }
+        .bg-warm { background-color: var(--warm-beige); }
+        .text-primary { color: var(--primary-blue); }
+        .text-secondary { color: var(--secondary-blue); }
+        .text-gold { color: var(--accent-gold); }
+        .text-dark { color: var(--text-dark); }
+        .text-light { color: var(--text-light); }
+        .border-gold { border-color: var(--accent-gold); }
+        .bg-gold { background-color: var(--accent-gold); }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+        }
+        
+        .quote-mark {
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--accent-gold);
+            opacity: 0.5;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--primary-blue));
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #fff 100%);
+            border: 2px solid var(--accent-gold);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-blue);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#home" class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                        <span class="text-white font-playfair font-bold text-xl">LV</span>
+                    </div>
+                    <div class="hidden sm:block">
+                        <p class="font-playfair font-semibold text-primary text-lg">Lê Hoàng Vân</p>
+                        <p class="text-xs text-light">Đào tạo & Khai vấn</p>
+                    </div>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-dark font-medium hover:text-primary">Trang chủ</a>
+                    <a href="#about" class="nav-link text-dark font-medium hover:text-primary">Giới thiệu</a>
+                    <a href="#services" class="nav-link text-dark font-medium hover:text-primary">Chuyên môn</a>
+                    <a href="#events" class="nav-link text-dark font-medium hover:text-primary">Sự kiện</a>
+                    <a href="#resources" class="nav-link text-dark font-medium hover:text-primary">Tài nguyên</a>
+                    <a href="#blog" class="nav-link text-dark font-medium hover:text-primary">Chia sẻ</a>
+                    <a href="#contact" class="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-secondary transition-colors">Liên hệ</a>
+                </div>
+                
+                <button id="menuBtn" class="lg:hidden text-primary text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white shadow-2xl lg:hidden">
+            <div class="p-6">
+                <button id="closeMenu" class="absolute top-6 right-6 text-2xl text-primary">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="mt-12 space-y-6">
+                    <a href="#home" class="block text-lg text-dark font-medium hover:text-primary">Trang chủ</a>
+                    <a href="#about" class="block text-lg text-dark font-medium hover:text-primary">Giới thiệu</a>
+                    <a href="#services" class="block text-lg text-dark font-medium hover:text-primary">Chuyên môn</a>
+                    <a href="#events" class="block text-lg text-dark font-medium hover:text-primary">Sự kiện</a>
+                    <a href="#resources" class="block text-lg text-dark font-medium hover:text-primary">Tài nguyên</a>
+                    <a href="#blog" class="block text-lg text-dark font-medium hover:text-primary">Chia sẻ</a>
+                    <a href="#contact" class="block bg-primary text-white px-6 py-3 rounded-full font-medium text-center">Liên hệ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen hero-gradient relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+                <div class="text-white space-y-8">
+                    <div class="inline-block px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">
+                        <span class="text-sm font-medium">🌾 15+ năm kinh nghiệm trong ngành</span>
+                    </div>
+                    
+                    <h1 class="font-playfair text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                        Xây dựng<br>
+                        <span class="text-gold">Nền tảng Vững chắc</span><br>
+                        Phát triển Con người
+                    </h1>
+                    
+                    <p class="text-xl text-white/90 leading-relaxed">
+                        ThS. BS Thú y <span class="font-semibold">Lê Hoàng Vân</span><br>
+                        Chuyên gia Đào tạo Quản lí, vận hành Trang Trại heo giống & Khai vấn Phát triển Con người
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#services" class="inline-flex items-center bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-warm transition-colors">
+                            <span>Khám phá Chuyên môn</span>
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                        <a href="#contact" class="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors">
+                            <span>Kết nối Ngay</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- HÌNH ẢNH 1: TRÒN (HERO) - KHANG ĐÃ SỬA -->
+                <div class="relative">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96 mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-full"></div>
+                        <div class="absolute inset-4 bg-warm rounded-full flex items-center justify-center overflow-hidden">
+                            <!-- Đã chèn mã hiển thị hình ảnh chuẩn -->
+                            <img src="my-picture-profile.jpg" alt="Cô Lê Hoàng Vân" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-gold text-white px-6 py-3 rounded-full font-semibold shadow-lg">
+                            <i class="fas fa-award mr-2"></i>15+ Năm Kinh nghiệm
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quote Banner -->
+        <div class="bg-white/10 backdrop-blur-sm py-12 relative z-10">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="quote-mark font-playfair">"</span>
+                <blockquote class="text-white text-lg md:text-xl lg:text-2xl leading-relaxed italic -mt-8">
+                    Tôi tin rằng một người làm nghề giỏi không chỉ cần chuyên môn vững vàng, mà còn cần tư duy đúng, nội lực mạnh và khả năng tự dẫn dắt bản thân. Trong đào tạo ngành heo, tôi xây nền tảng khoa học – kỹ thuật chuẩn mực; trong khai vấn, tôi giúp con người hiểu mình, trưởng thành từ bên trong và phát triển bền vững cùng nghề nghiệp.
+                </blockquote>
+                <div class="mt-6 flex items-center justify-center">
+                    <div class="w-16 h-0.5 bg-gold"></div>
+                    <span class="mx-4 text-gold font-semibold">Lê Hoàng Vân</span>
+                    <div class="w-16 h-0.5 bg-gold"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Two Pillars Section -->
+    <section class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mb-4">Hai Trụ cột Chuyên môn</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-light text-lg max-w-3xl mx-auto">
+                    Kết hợp nền tảng kỹ thuật vững chắc với phát triển con người toàn diện, tạo nên sự khác biệt bền vững trong ngành chăn nuôi.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Pillar 1 -->
+                <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover shadow-lg fade-in">
+                    <div class="w-20 h-20 bg-light-blue rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-microscope text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-primary mb-4">Đào tạo Kỹ thuật Vận hành Trại Heo Giống</h3>
+                    <p class="text-light leading-relaxed mb-6">
+                        Với hơn 15 năm kinh nghiệm thực chiến tại các trang trại heo giống quy mô công nghiệp, tôi mang đến chương trình đào tạo toàn diện từ nền tảng khoa học đến kỹ năng vận hành thực tiễn.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Quy trình vận hành chuẩn (SOP)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">An toàn sinh học (ATSH)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Kỹ thuật sinh sản chuyên sâu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Quản lý đội ngũ kỹ thuật</span>
+                        </li>
+                    </ul>
+                    <a href="#services" class="inline-flex items-center text-primary font-semibold hover:text-secondary">
+                        Tìm hiểu thêm <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Pillar 2 -->
+                <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover shadow-lg fade-in">
+                    <div class="w-20 h-20 bg-light-blue rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-compass text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-playfair text-2xl font-bold text-primary mb-4">Khai vấn Phát triển Con người & Sự nghiệp</h3>
+                    <p class="text-light leading-relaxed mb-6">
+                        Coaching không chỉ là giúp người khác giải quyết vấn đề, mà là đồng hành để họ khám phá tiềm năng, xây dựng nội lực và tự tin định hình con đường sự nghiệp của riêng mình.
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Coaching 1:1 cá nhân</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Phát triển tư duy lãnh đạo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Định hướng sự nghiệp bền vững</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-gold mt-1 mr-3"></i>
+                            <span class="text-dark">Xây dựng nội lực cá nhân</span>
+                        </li>
+                    </ul>
+                    <a href="#services" class="inline-flex items-center text-primary font-semibold hover:text-secondary">
+                        Tìm hiểu thêm <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="relative">
+                        <div class="bg-primary/10 rounded-2xl p-8 lg:p-12">
+                            <!-- HÌNH ẢNH 2: CHỮ NHẬT (ABOUT) - KHANG ĐÃ SỬA -->
+                            <div class="bg-warm rounded-xl aspect-[4/5] flex items-center justify-center overflow-hidden">
+                                <img src="my-picture-profile.jpg" alt="Cô Lê Hoàng Vân" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 bg-gold text-white p-6 rounded-xl shadow-xl">
+                            <p class="font-playfair text-3xl font-bold">15+</p>
+                            <p class="text-sm">Năm Kinh nghiệm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8 fade-in">
+                    <div>
+                        <span class="text-gold font-semibold text-sm uppercase tracking-wider">Về tôi</span>
+                        <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Câu chuyện Nghề nghiệp</h2>
+                        <div class="section-divider mb-6"></div>
+                    </div>
+                    
+                    <div class="prose prose-lg text-light leading-relaxed space-y-4">
+                        <p>
+                            Tôi bắt đầu hành trình với ngành chăn nuôi từ khi còn là sinh viên Thú y, mang theo niềm đam mê cháy bỏng với khoa học và mong muốn đóng góp cho nền nông nghiệp Việt Nam.
+                        </p>
+                        <p>
+                            Hơn 15 năm làm việc tại các trang trại heo giống quy mô công nghiệp đã cho tôi không chỉ kiến thức chuyên môn sâu rộng, mà còn là bài học quý giá về con người – về cách huấn luyện, dẫn dắt và truyền cảm hứng cho đội ngũ.
+                        </p>
+                        <p>
+                            Tôi nhận ra rằng, kỹ thuật tốt chỉ là một phần của thành công. Điều thực sự tạo nên sự khác biệt là con người – là tư duy, thái độ và khả năng tự phát triển của mỗi cá nhân. Đó là lý do tôi song hành giữa đào tạo kỹ thuật và khai vấn phát triển con người.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6 pt-6">
+                        <div class="text-center p-6 bg-light-blue rounded-xl">
+                            <p class="font-playfair text-3xl font-bold text-primary">500+</p>
+                            <p class="text-light text-sm mt-1">Học viên đào tạo</p>
+                        </div>
+                        <div class="text-center p-6 bg-light-blue rounded-xl">
+                            <p class="font-playfair text-3xl font-bold text-primary">50+</p>
+                            <p class="text-light text-sm mt-1">Doanh nghiệp hợp tác</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Philosophy -->
+            <div class="mt-24 fade-in">
+                <div class="text-center mb-12">
+                    <h3 class="font-playfair text-2xl md:text-3xl font-bold text-primary mb-4">Triết lý Làm nghề – Làm người – Làm chuyên gia</h3>
+                    <div class="section-divider mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 bg-warm rounded-2xl card-hover">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-book-open text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-4">Nền tảng Học thuật</h4>
+                        <p class="text-light">
+                            Thạc sĩ bác sĩ Thú y với nền tảng khoa học vững chắc, luôn cập nhật kiến thức mới nhất trong ngành chăn nuôi heo giống thế giới.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-8 bg-warm rounded-2xl card-hover">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-industry text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-4">Kinh nghiệm Thực chiến</h4>
+                        <p class="text-light">
+                            15+ năm làm việc trực tiếp tại các trang trại quy mô lớn, giải quyết những thách thức thực tế từ kỹ thuật đến quản lý đội ngũ.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center p-8 bg-warm rounded-2xl card-hover">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-heart text-2xl text-white"></i>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-4">Tâm huyết Con người</h4>
+                        <p class="text-light">
+                            Tin vào tiềm năng của mỗi người, đồng hành không chỉ để truyền đạt kiến thức mà còn để giúp họ trưởng thành từ bên trong.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-light-blue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-gold font-semibold text-sm uppercase tracking-wider">Chuyên môn & Dịch vụ</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Đồng hành Cùng Bạn</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-light text-lg max-w-3xl mx-auto">
+                    Mỗi dịch vụ được thiết kế dựa trên nhu cầu thực tế và mục tiêu phát triển của từng cá nhân, đội ngũ và doanh nghiệp.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 card-hover shadow-lg fade-in">
+                    <div class="flex items-start space-x-6">
+                        <div class="service-icon shrink-0">
+                            <i class="fas fa-clipboard-list text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-playfair text-xl font-bold text-primary mb-3">Đào tạo Kỹ thuật Trại Heo Giống</h3>
+                            <p class="text-light mb-4">
+                                Chương trình đào tạo toàn diện từ SOP, an toàn sinh học (ATSH), kỹ thuật sinh sản đến quản lý đội ngũ kỹ thuật viên.
+                            </p>
+                            <ul class="space-y-2 text-sm text-dark">
+                                <li><i class="fas fa-check text-gold mr-2"></i>Xây dựng & triển khai SOP chuẩn</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Quản lý an toàn sinh học</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Kỹ thuật sinh sản chuyên sâu</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Quản lý sức khỏe đàn</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 card-hover shadow-lg fade-in">
+                    <div class="flex items-start space-x-6">
+                        <div class="service-icon shrink-0">
+                            <i class="fas fa-user-cog text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-playfair text-xl font-bold text-primary mb-3">Coaching 1:1 Cá nhân</h3>
+                            <p class="text-light mb-4">
+                                Đồng hành cùng bạn khám phá tiềm năng, vượt qua rào cản tư duy và xây dựng lộ trình phát triển sự nghiệp rõ ràng.
+                            </p>
+                            <ul class="space-y-2 text-sm text-dark">
+                                <li><i class="fas fa-check text-gold mr-2"></i>Khám phá điểm mạnh & giá trị cốt lõi</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Xác định mục tiêu nghề nghiệp</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Phát triển tư duy & nội lực</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Xây dựng kế hoạch hành động</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 card-hover shadow-lg fade-in">
+                    <div class="flex items-start space-x-6">
+                        <div class="service-icon shrink-0">
+                            <i class="fas fa-users-cog text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-playfair text-xl font-bold text-primary mb-3">Huấn luyện Đội ngũ Kỹ thuật / Quản lý</h3>
+                            <p class="text-light mb-4">
+                                Xây dựng và phát triển năng lực đội ngũ kỹ thuật, quản lý trang trại với tư duy hệ thống và kỹ năng lãnh đạo.
+                            </p>
+                            <ul class="space-y-2 text-sm text-dark">
+                                <li><i class="fas fa-check text-gold mr-2"></i>Đào tạo kỹ năng quản lý</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Xây dựng văn hóa đội nhóm</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Coaching cho leaders</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Phát triển năng lực lãnh đạo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 card-hover shadow-lg fade-in">
+                    <div class="flex items-start space-x-6">
+                        <div class="service-icon shrink-0">
+                            <i class="fas fa-building text-2xl text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-playfair text-xl font-bold text-primary mb-3">Đào tạo Nội bộ Doanh nghiệp</h3>
+                            <p class="text-light mb-4">
+                                Thiết kế và triển khai chương trình đào tạo riêng biệt, phù hợp với đặc thù và mục tiêu của từng doanh nghiệp.
+                            </p>
+                            <ul class="space-y-2 text-sm text-dark">
+                                <li><i class="fas fa-check text-gold mr-2"></i>Khảo sát & đánh giá nhu cầu</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Thiết kế chương trình riêng</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Đào tạo tại chỗ</li>
+                                <li><i class="fas fa-check text-gold mr-2"></i>Đánh giá & theo dõi sau đào tạo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in">
+                <a href="#contact" class="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-secondary transition-colors">
+                    <span>Tư vấn Miễn phí</span>
+                    <i class="fas fa-arrow-right ml-3"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-gold font-semibold text-sm uppercase tracking-wider">Sự kiện & Đào tạo</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Kết nối & Học hỏi</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-light text-lg max-w-3xl mx-auto">
+                    Tham gia các sự kiện, hội thảo và workshop để cập nhật kiến thức, mở rộng network và phát triển bản thân.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Event Type 1 -->
+                <div class="bg-warm rounded-2xl p-6 text-center card-hover fade-in">
+                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chalkboard-teacher text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-primary mb-3">Hội thảo Chuyên đề</h3>
+                    <p class="text-light text-sm mb-4">
+                        Các hội thảo chuyên sâu về kỹ thuật chăn nuôi, quản lý trang trại và xu hướng ngành.
+                    </p>
+                    <span class="inline-block bg-light-blue text-primary px-4 py-2 rounded-full text-sm font-medium">
+                        Cập nhật thường xuyên
+                    </span>
+                </div>
+                
+                <!-- Event Type 2 -->
+                <div class="bg-warm rounded-2xl p-6 text-center card-hover fade-in">
+                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-primary mb-3">Lớp Đào tạo</h3>
+                    <p class="text-light text-sm mb-4">
+                        Khóa học có hệ thống từ cơ bản đến nâng cao, được thiết kế theo chuẩn quốc tế.
+                    </p>
+                    <span class="inline-block bg-light-blue text-primary px-4 py-2 rounded-full text-sm font-medium">
+                        Online & Offline
+                    </span>
+                </div>
+                
+                <!-- Event Type 3 -->
+                <div class="bg-warm rounded-2xl p-6 text-center card-hover fade-in">
+                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-microphone-alt text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-primary mb-3">Talkshow Truyền cảm hứng</h3>
+                    <p class="text-light text-sm mb-4">
+                        Chia sẻ câu chuyện nghề nghiệp, bài học kinh nghiệm và nguồn cảm hứng phát triển.
+                    </p>
+                    <span class="inline-block bg-light-blue text-primary px-4 py-2 rounded-full text-sm font-medium">
+                        Miễn phí tham gia
+                    </span>
+                </div>
+                
+                <!-- Event Type 4 -->
+                <div class="bg-warm rounded-2xl p-6 text-center card-hover fade-in">
+                    <div class="w-20 h-20 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-3xl text-white"></i>
+                    </div>
+                    <h3 class="font-playfair text-xl font-bold text-primary mb-3">Workshop Chuyên môn</h3>
+                    <p class="text-light text-sm mb-4">
+                        Thực hành kỹ năng chuyên môn, giải quyết case study thực tế với sự hướng dẫn trực tiếp.
+                    </p>
+                    <span class="inline-block bg-light-blue text-primary px-4 py-2 rounded-full text-sm font-medium">
+                        Nhóm nhỏ, chất lượng cao
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Upcoming Events -->
+            <div class="mt-16 bg-primary rounded-2xl p-8 lg:p-12 fade-in">
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="text-white">
+                        <h3 class="font-playfair text-2xl font-bold mb-4">Sự kiện Sắp tới</h3>
+                        <p class="text-white/80 mb-6">
+                            Đăng ký nhận thông tin sớm nhất về các sự kiện, hội thảo và khóa đào tạo mới nhất.
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-calendar-alt text-2xl text-gold"></i>
+                            <div>
+                                <p class="font-semibold">Cập nhật liên tục</p>
+                                <p class="text-white/60 text-sm">Theo dõi để không bỏ lỡ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form class="flex flex-col sm:flex-row gap-4">
+                            <input type="email" placeholder="Email của bạn" class="flex-1 px-6 py-4 rounded-full text-dark focus:outline-none focus:ring-2 focus:ring-gold">
+                            <button type="submit" class="bg-gold text-white px-8 py-4 rounded-full font-semibold hover:bg-amber-600 transition-colors whitespace-nowrap">
+                                Đăng ký
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-gold font-semibold text-sm uppercase tracking-wider">Cửa hàng & Tài nguyên</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Công cụ Phát triển</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-light text-lg max-w-3xl mx-auto">
+                    Tài liệu, khóa học và công cụ được đúc kết từ kinh nghiệm thực tiễn, giúp bạn học hỏi và áp dụng hiệu quả.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Resource 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-file-pdf text-6xl text-primary/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-gold text-xs font-semibold uppercase">Tài liệu</span>
+                        <h4 class="font-playfair text-lg font-bold text-primary mt-2 mb-2">Tài liệu Chuyên ngành</h4>
+                        <p class="text-light text-sm mb-4">Các tài liệu kỹ thuật, hướng dẫn SOP và checklist vận hành.</p>
+                        <a href="#" class="text-primary font-medium text-sm hover:text-secondary">
+                            Xem thêm <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-play-circle text-6xl text-primary/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-gold text-xs font-semibold uppercase">Khóa học</span>
+                        <h4 class="font-playfair text-lg font-bold text-primary mt-2 mb-2">Khóa học Online</h4>
+                        <p class="text-light text-sm mb-4">Học theo lộ trình, có chứng chỉ, hỗ trợ học viên liên tục.</p>
+                        <a href="#" class="text-primary font-medium text-sm hover:text-secondary">
+                            Xem thêm <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-book text-6xl text-primary/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-gold text-xs font-semibold uppercase">Ebook</span>
+                        <h4 class="font-playfair text-lg font-bold text-primary mt-2 mb-2">Ebook & Giáo trình</h4>
+                        <p class="text-light text-sm mb-4">Sách điện tử, slide bài giảng và giáo trình đào tạo.</p>
+                        <a href="#" class="text-primary font-medium text-sm hover:text-secondary">
+                            Xem thêm <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover shadow-lg fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-box-open text-6xl text-primary/30"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-gold text-xs font-semibold uppercase">Gói dịch vụ</span>
+                        <h4 class="font-playfair text-lg font-bold text-primary mt-2 mb-2">Sản phẩm Đào tạo</h4>
+                        <p class="text-light text-sm mb-4">Gói đào tạo & coaching được thiết kế sẵn, dễ triển khai.</p>
+                        <a href="#" class="text-primary font-medium text-sm hover:text-secondary">
+                            Xem thêm <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-gold font-semibold text-sm uppercase tracking-wider">Chia sẻ & Blog</span>
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Góc Tri thức</h2>
+                <div class="section-divider mx-auto mb-6"></div>
+                <p class="text-light text-lg max-w-3xl mx-auto">
+                    Những bài viết sâu sắc về chăn nuôi, quản lý trang trại, phát triển con người và tư duy nghề nghiệp.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <article class="bg-warm rounded-2xl overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-pig text-6xl text-primary/20"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Chăn nuôi</span>
+                            <span class="text-light text-xs">15 phút đọc</span>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-3">Xây dựng SOP hiệu quả cho trại heo giống</h4>
+                        <p class="text-light text-sm mb-4">Hướng dẫn chi tiết cách xây dựng và triển khai quy trình vận hành chuẩn cho trang trại...</p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary">
+                            Đọc tiếp <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Blog 2 -->
+                <article class="bg-warm rounded-2xl overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-shield-virus text-6xl text-primary/20"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">ATSH</span>
+                            <span class="text-light text-xs">12 phút đọc</span>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-3">An toàn sinh học – Nền tảng của thành công</h4>
+                        <p class="text-light text-sm mb-4">Tại sao ATSH là yếu tố then chốt quyết định sự bền vững của trang trại heo giống...</p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary">
+                            Đọc tiếp <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Blog 3 -->
+                <article class="bg-warm rounded-2xl overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-light-blue flex items-center justify-center">
+                        <i class="fas fa-user-graduate text-6xl text-primary/20"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Phát triển</span>
+                            <span class="text-light text-xs">10 phút đọc</span>
+                        </div>
+                        <h4 class="font-playfair text-xl font-bold text-primary mb-3">Tư duy nghề nghiệp & lãnh đạo bản thân</h4>
+                        <p class="text-light text-sm mb-4">Làm thế nào để phát triển tư duy đúng đắn và trở thành người dẫn dắt trong lĩnh vực của mình...</p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:text-secondary">
+                            Đọc tiếp <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Blog Categories -->
+            <div class="mt-16 grid md:grid-cols-4 gap-4 fade-in">
+                <div class="bg-light-blue rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-colors cursor-pointer group">
+                    <i class="fas fa-pig text-2xl text-primary group-hover:text-white mb-3"></i>
+                    <p class="font-medium text-primary group-hover:text-white">Chăn nuôi Heo giống</p>
+                </div>
+                <div class="bg-light-blue rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-colors cursor-pointer group">
+                    <i class="fas fa-tasks text-2xl text-primary group-hover:text-white mb-3"></i>
+                    <p class="font-medium text-primary group-hover:text-white">Quản lý Trang trại</p>
+                </div>
+                <div class="bg-light-blue rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-colors cursor-pointer group">
+                    <i class="fas fa-users text-2xl text-primary group-hover:text-white mb-3"></i>
+                    <p class="font-medium text-primary group-hover:text-white">Phát triển Con người</p>
+                </div>
+                <div class="bg-light-blue rounded-xl p-6 text-center hover:bg-primary hover:text-white transition-colors cursor-pointer group">
+                    <i class="fas fa-lightbulb text-2xl text-primary group-hover:text-white mb-3"></i>
+                    <p class="font-medium text-primary group-hover:text-white">Tư duy & Lãnh đạo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mb-4">Cảm nhận Từ Học viên</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                    </div>
+                    <p class="text-white/90 italic mb-6">
+                        "Cô Vân không chỉ dạy kỹ thuật mà còn truyền cảm hứng để tôi yêu nghề hơn. Sau khóa đào tạo, tôi tự tin hơn rất nhiều trong công việc."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gold/30 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">NT</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Nguyễn Thanh</p>
+                            <p class="text-white/60 text-sm">Kỹ thuật viên trại giống</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                    </div>
+                    <p class="text-white/90 italic mb-6">
+                        "Coaching với Cô Vân giúp tôi nhìn rõ hơn con đường sự nghiệp. Cô ấy lắng nghe và đặt những câu hỏi khiến tôi phải suy nghĩ sâu sắc."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gold/30 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">LH</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Lê Hương</p>
+                            <p class="text-white/60 text-sm">Quản lý trang trại</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 fade-in">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                        <i class="fas fa-star text-gold"></i>
+                    </div>
+                    <p class="text-white/90 italic mb-6">
+                        "Chương trình đào tạo nội bộ mà Cô Vân thiết kế đã giúp đội ngũ của chúng tôi nâng cao năng lực rõ rệt. Rất chuyên nghiệp!"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gold/30 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-white font-bold">TM</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Trần Minh</p>
+                            <p class="text-white/60 text-sm">Giám đốc công ty</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-warm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="fade-in">
+                    <span class="text-gold font-semibold text-sm uppercase tracking-wider">Liên hệ</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Kết nối với Tôi</h2>
+                    <div class="section-divider mb-8"></div>
+                    
+                    <p class="text-light text-lg mb-8 leading-relaxed">
+                        Dù bạn đang tìm kiếm giải pháp đào tạo kỹ thuật cho trang trại, muốn phát triển bản thân qua coaching, hay đơn giản muốn trao đổi về ngành – tôi luôn sẵn lòng lắng nghe và đồng hành.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-light text-sm">Điện thoại</p>
+                                <a href="tel:0359399877" class="text-primary font-semibold text-lg hover:text-secondary">0359 399 877</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-xl text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-light text-sm">Email</p>
+                                <a href="mailto:lehoangvan2060@gmail.com" class="text-primary font-semibold text-lg hover:text-secondary">lehoangvan2060@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-facebook-f text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-linkedin-in text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-youtube text-white"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
+                            <i class="fab fa-tiktok text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <form class="bg-white rounded-2xl p-8 shadow-xl">
+                        <h3 class="font-playfair text-2xl font-bold text-primary mb-6">Gửi Tin nhắn</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-dark font-medium mb-2">Họ và tên *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="Nhập họ tên của bạn">
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-dark font-medium mb-2">Email *</label>
+                                    <input type="email" required class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="email@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-dark font-medium mb-2">Số điện thoại</label>
+                                    <input type="tel" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20" placeholder="0xxx xxx xxx">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-dark font-medium mb-2">Chủ đề quan tâm</label>
+                                <select class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20">
+                                    <option>Đào tạo kỹ thuật trại heo giống</option>
+                                    <option>Coaching cá nhân 1:1</option>
+                                    <option>Huấn luyện đội ngũ</option>
+                                    <option>Đào tạo nội bộ doanh nghiệp</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-dark font-medium mb-2">Nội dung tin nhắn *</label>
+                                <textarea required rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none" placeholder="Chia sẻ nhu cầu hoặc câu hỏi của bạn..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-semibold hover:bg-secondary transition-colors flex items-center justify-center">
+                                <span>Gửi Tin nhắn</span>
+                                <i class="fas fa-paper-plane ml-3"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 hero-gradient">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h2 class="font-playfair text-3xl md:text-4xl font-bold text-white mb-6">
+                Sẵn sàng Bắt đầu Hành trình Phát triển?
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                Dù bạn là kỹ thuật viên muốn nâng cao chuyên môn, quản lý cần phát triển năng lực lãnh đạo, hay doanh nghiệp tìm kiếm giải pháp đào tạo – hãy để tôi đồng hành cùng bạn.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:0359399877" class="inline-flex items-center bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-warm transition-colors">
+                    <i class="fas fa-phone mr-3"></i>
+                    <span>Gọi ngay: 0359 399 877</span>
+                </a>
+                <a href="mailto:lehoangvan2060@gmail.com" class="inline-flex items-center border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-colors">
+                    <i class="fas fa-envelope mr-3"></i>
+                    <span>Gửi Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center">
+                            <span class="font-playfair font-bold text-xl">LV</span>
+                        </div>
+                        <div>
+                            <p class="font-playfair font-semibold text-xl">Lê Hoàng Vân</p>
+                            <p class="text-gray-400 text-sm">ThS. BS Thú y | Chuyên gia Đào tạo & Khai vấn</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Xây dựng nền tảng kỹ thuật vững chắc, phát triển con người toàn diện. Đồng hành cùng bạn trên hành trình trở thành người làm nghề giỏi và người dẫn dắt xuất sắc.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-gold transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Liên kết Nhanh</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-gold transition-colors">Trang chủ</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-gold transition-colors">Giới thiệu</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-gold transition-colors">Chuyên môn</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-gold transition-colors">Sự kiện</a></li>
+                        <li><a href="#blog" class="text-gray-400 hover:text-gold transition-colors">Chia sẻ</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-gold transition-colors">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-6">Liên hệ</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-gold"></i>
+                            <a href="tel:0359399877" class="hover:text-gold">0359 399 877</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gold"></i>
+                            <a href="mailto:lehoangvan2060@gmail.com" class="hover:text-gold text-sm">lehoangvan2060@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 ThS. BS Thú y Lê Hoàng Vân. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi trong thời gian sớm nhất.');
+            contactForm.reset();
+        });
+
+        // Newsletter form
+        const newsletterForm = document.querySelector('.bg-primary form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Đăng ký thành công! Bạn sẽ nhận được thông tin về các sự kiện sắp tới.');
+                newsletterForm.reset();
+            });
+        }
+    </script>
+</body>
+</html>
